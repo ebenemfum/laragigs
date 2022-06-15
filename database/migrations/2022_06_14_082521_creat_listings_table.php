@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('listings', function (Blueprint $table) {
-
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->string('logo')->nullable();
             $table->string('tags');
@@ -25,10 +25,8 @@ return new class extends Migration
             $table->string('website');
             $table->longText('description');
             $table->timestamps();
-
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -39,5 +37,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('listings');
     }
-
 };

@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Listing;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use PhpParser\Node\Expr\List_;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        Listing::factory(9)->create();
+        //\App\Models\User::factory(1)->create();
+        $user = User::factory()->create([
+            'name'=> 'John Doe',
+            'email'=> 'john@example.com'
+        ]);
+        Listing::factory(9)->create([
+            'user_id'=> $user->id
+        ]);
        
 
         
