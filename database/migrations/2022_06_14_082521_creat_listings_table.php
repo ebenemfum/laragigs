@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->id();
             $table->string('title');
+            $table->string('logo')->nullable();
             $table->string('tags');
             $table->string('company');
             $table->string('location');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('website');
             $table->longText('description');
             $table->timestamps();
+
         });
     }
 

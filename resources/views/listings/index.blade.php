@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
 
 @include('partials._hero')
 @include('partials._search')
@@ -16,4 +14,7 @@
 @endunless
 
 </div>
-@endsection
+<div class="mt-6 p-4 object-bottom">
+    {{$listings->links()}}
+</div>
+</x-layout>
